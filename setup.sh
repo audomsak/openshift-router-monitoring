@@ -68,10 +68,10 @@ create_grafana_instance() {
     echo
 
     oc apply -f grafana.yml -n $PROJECT
-    oc wait --for=jsonpath='{.status.stage}'=complete grafanas/grafana -n $PROJECT
+    oc wait --for=jsonpath='{.status.stage}'=complete grafanas/grafana --timeout=300s -n $PROJECT
 
     podname=`oc get pods --no-headers -o custom-columns=":metadata.name" -l app=grafana -n $PROJECT`
-    oc wait --for=condition=Ready=True pods/$podname -n $PROJECT
+    oc wait --for=condition=Ready=True pods/$podname --timeout=300s -n $PROJECT
 }
 
 create_grafana_datasource() {
