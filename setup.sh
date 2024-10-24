@@ -79,8 +79,8 @@ create_grafana_datasource() {
     echo "Creating GrafanaDatasource custom resource (CR) in $PROJECT project..."
     echo
 
-    #Create token for Grafana service account to be used for Thanos Querier authentication
-    token=`oc create token grafana-sa --duration 8640h -n $PROJECT`
+    #Create 1-year token for Grafana service account to be used for Thanos Querier authentication
+    token=`oc create token grafana-sa --duration 8765h -n $PROJECT`
     cat grafana-datasource.yml | sed "s#TOKEN#$token#g" | oc apply -n $PROJECT -f -
 }
 
