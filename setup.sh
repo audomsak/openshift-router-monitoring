@@ -24,7 +24,7 @@ install_operator() {
     echo "Installing $operatorDescParam to $project project..."
     echo
 
-    cat $ymlFilePathParam | sed "s#NAMESPACE#$project#g" | oc apply -n $project -f -
+    oc apply -f $ymlFilePathParam -n $project
     oc wait --for=jsonpath='{.status.components.refs[?(@.apiVersion=="apps/v1")].conditions[?(@.type=="Available")].status}'=True \
        operators/$operatorNameParam.$project --timeout=300s -n $project
 }
