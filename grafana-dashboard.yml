@@ -2,7 +2,6 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
   name: openshift-ingress
-  namespace: grafana
 spec:
   datasources:
     - datasourceName: prometheus
