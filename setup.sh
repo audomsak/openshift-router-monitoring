@@ -85,10 +85,22 @@ create_grafana_datasource() {
     oc wait --for=jsonpath='{.status.lastResync}' grafanadatasources/openshift-prometheus --timeout=300s -n $PROJECT
 }
 
+create_grafana_folder() {
+    echo
+    echo "Creating GrafanaFolder custom resource (CR) in $PROJECT project..."
+    echo
+
+    oc apply -f grafana-folder.yml -n $PROJECT
+    oc wait --for=condition=FolderSynchronized=True grafanafolders/openshift --timeout=300s -n $PROJECT
+}
+
 create_grafana_dashboard() {
     echo
     echo "Creating GrafanaDashboard custom resource (CR) in $PROJECT project..."
     echo
+
+    oc apply -f grafana-dashboard.yml -n $PROJECT
+    oc wait --for=condition=DashboardSynchronized=True pods/$podname --timeout=300s -n $PROJECT
 }
 
 print_info() {
@@ -124,6 +136,9 @@ add_monitoring_view_role
 repeat '-'
 
 create_grafana_datasource
+repeat '-'
+
+create_grafana_folder
 repeat '-'
 
 create_grafana_dashboard
