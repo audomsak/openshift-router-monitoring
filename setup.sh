@@ -82,7 +82,7 @@ create_grafana_datasource() {
     #Create 1-year token for Grafana service account to be used for Thanos Querier authentication
     token=`oc create token grafana-sa --duration 8765h -n $PROJECT`
     cat grafana-datasource.yml | sed "s#TOKEN#$token#g" | oc apply -n $PROJECT -f -
-    oc wait --for=jsonpath='{.status.lastResync}' grafanadatasources/grafana-datasource --timeout=300s -n $PROJECT
+    oc wait --for=jsonpath='{.status.lastResync}' grafanadatasources/openshift-prometheus --timeout=300s -n $PROJECT
 }
 
 create_grafana_dashboard() {
