@@ -100,7 +100,7 @@ create_grafana_dashboard() {
     echo
 
     oc apply -f grafana-dashboard.yml -n $PROJECT
-    oc wait --for=condition=DashboardSynchronized=True pods/$podname --timeout=300s -n $PROJECT
+    oc wait --for=condition=DashboardSynchronized=True grafanadashboards/openshift-ingress --timeout=300s -n $PROJECT
 }
 
 print_info() {
