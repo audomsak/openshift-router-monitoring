@@ -54,7 +54,7 @@ install_grafana() {
     install_operator $operatorName "$operatorDesc" $ymlFilePath $project
 }
 
-add_monitoring_view_role_to_grafana_serviceaccount() {
+add_monitoring_view_role() {
     echo ""
     echo "Add monitoring view role to Grafana service account..."
     echo
@@ -117,6 +117,9 @@ install_grafana
 repeat '-'
 
 create_grafana_instance
+repeat '-'
+
+add_monitoring_view_role
 repeat '-'
 
 create_grafana_datasource
