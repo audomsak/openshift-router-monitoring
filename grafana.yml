@@ -2,8 +2,6 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: Grafana
 metadata:
   labels:
-    dashboards: openshift
-    folders: openshift
     instance: grafana
   name: grafana
 spec:
