@@ -10,6 +10,7 @@ spec:
   instanceSelector:
     matchLabels:
       instance: grafana
+  folder: openshift
   json: |
     {
       "id": null,
@@ -40,4 +41,3 @@ spec:
       "version": 0,
       "links": []
     }
-  folder: openshift
