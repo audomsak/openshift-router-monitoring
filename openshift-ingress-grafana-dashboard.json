@@ -1,4 +1,34 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_OCP_PROMETHEUS",
+      "label": "prometheus",
+      "description": "Prometheus in OpenShift monitoring stack.",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -38,7 +68,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -73,9 +103,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -103,7 +131,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -138,9 +166,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -168,7 +194,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "When was the last date and time HAProxy process reloaded",
       "fieldConfig": {
@@ -212,9 +238,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -227,7 +251,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "haproxy_process_start_time_seconds{pod=~\"$pod\"}*1000",
@@ -246,7 +270,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -285,9 +309,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -315,7 +337,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -350,9 +372,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -380,7 +400,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "How long the HAProxy process has been started since last reloaded",
       "fieldConfig": {
@@ -424,9 +444,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -439,7 +457,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "time() - haproxy_process_start_time_seconds{pod=~\"$pod\"}",
@@ -458,7 +476,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -499,9 +517,7 @@
         "namePlacement": "auto",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -525,7 +541,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -559,9 +575,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -585,7 +599,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "Total of connection errors when HAProxy was not able to connect to backend i.e. pod(s)",
       "fieldConfig": {
@@ -624,9 +638,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -650,7 +662,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -685,9 +697,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -711,7 +721,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -746,9 +756,7 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -785,7 +793,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -812,9 +820,7 @@
               "id": "byNames",
               "options": {
                 "mode": "exclude",
-                "names": [
-                  "nodejs-basic"
-                ],
+                "names": ["nodejs-basic"],
                 "prefix": "All except:",
                 "readOnly": true
               }
@@ -844,9 +850,7 @@
         "namePlacement": "auto",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "max"
-          ],
+          "calcs": ["max"],
           "fields": "",
           "values": false
         },
@@ -872,7 +876,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -899,9 +903,7 @@
               "id": "byNames",
               "options": {
                 "mode": "exclude",
-                "names": [
-                  "quarkus-metrics"
-                ],
+                "names": ["quarkus-metrics"],
                 "prefix": "All except:",
                 "readOnly": true
               }
@@ -931,9 +933,7 @@
         "namePlacement": "auto",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "max"
-          ],
+          "calcs": ["max"],
           "fields": "",
           "values": false
         },
@@ -959,7 +959,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -1023,9 +1023,7 @@
       "id": 29,
       "options": {
         "legend": {
-          "calcs": [
-            "max"
-          ],
+          "calcs": ["max"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1051,7 +1049,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -1094,9 +1092,7 @@
         "namePlacement": "auto",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "max"
-          ],
+          "calcs": ["max"],
           "fields": "",
           "values": false
         },
@@ -1120,7 +1116,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1229,7 +1225,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "Maximum observed number of active sessions.",
       "fieldConfig": {
@@ -1294,10 +1290,7 @@
       "id": 26,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max"
-          ],
+          "calcs": ["lastNotNull", "max"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true,
@@ -1314,7 +1307,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "haproxy_backend_max_sessions{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}",
@@ -1333,7 +1326,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1422,10 +1415,7 @@
       "id": 19,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max"
-          ],
+          "calcs": ["lastNotNull", "max"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -1440,7 +1430,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_backend_current_sessions{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by(pod, route) ",
@@ -1459,7 +1449,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1523,10 +1513,7 @@
       "id": 33,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max"
-          ],
+          "calcs": ["lastNotNull", "max"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -1541,7 +1528,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_backend_current_queue{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by(pod, route) ",
@@ -1560,7 +1547,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1623,12 +1610,7 @@
       "id": 24,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "min",
-            "mean"
-          ],
+          "calcs": ["lastNotNull", "max", "min", "mean"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -1654,7 +1636,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1717,12 +1699,7 @@
       "id": 25,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "min",
-            "mean"
-          ],
+          "calcs": ["lastNotNull", "max", "min", "mean"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -1748,7 +1725,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "Average response latency of the last 1024 requests in milliseconds.",
       "fieldConfig": {
@@ -1812,12 +1789,7 @@
       "id": 27,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "min",
-            "mean"
-          ],
+          "calcs": ["lastNotNull", "max", "min", "mean"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -1843,7 +1815,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "Average response latency of the last 1024 requests in milliseconds.",
       "fieldConfig": {
@@ -1907,12 +1879,7 @@
       "id": 28,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "min",
-            "mean"
-          ],
+          "calcs": ["lastNotNull", "max", "min", "mean"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -1938,7 +1905,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1972,9 +1939,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -1987,7 +1952,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_backend_connections_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by (route, pod)",
@@ -2004,7 +1969,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2038,9 +2003,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -2053,7 +2016,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_backend_connection_errors_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by (route, pod)",
@@ -2070,7 +2033,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2104,9 +2067,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -2119,7 +2080,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_backend_response_errors_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by (route, pod)",
@@ -2149,7 +2110,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -2176,9 +2137,7 @@
               "id": "byNames",
               "options": {
                 "mode": "exclude",
-                "names": [
-                  "nodejs-basic"
-                ],
+                "names": ["nodejs-basic"],
                 "prefix": "All except:",
                 "readOnly": true
               }
@@ -2208,9 +2167,7 @@
         "namePlacement": "top",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "max"
-          ],
+          "calcs": ["max"],
           "fields": "",
           "values": false
         },
@@ -2236,7 +2193,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -2263,9 +2220,7 @@
               "id": "byNames",
               "options": {
                 "mode": "exclude",
-                "names": [
-                  "quarkus-metrics"
-                ],
+                "names": ["quarkus-metrics"],
                 "prefix": "All except:",
                 "readOnly": true
               }
@@ -2295,9 +2250,7 @@
         "namePlacement": "top",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "max"
-          ],
+          "calcs": ["max"],
           "fields": "",
           "values": false
         },
@@ -2323,7 +2276,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -2387,9 +2340,7 @@
       "id": 36,
       "options": {
         "legend": {
-          "calcs": [
-            "max"
-          ],
+          "calcs": ["max"],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2415,7 +2366,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2524,7 +2475,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "Total servers per route",
       "fieldConfig": {
@@ -2606,9 +2557,7 @@
         "namePlacement": "top",
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -2620,7 +2569,7 @@
       "targets": [
         {
           "editorMode": "code",
-          "expr": "count(haproxy_server_up{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"} == 1) by (route)",
+          "expr": "count(group(haproxy_server_up{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"} == 1) by (exported_pod, route))",
           "legendFormat": "R: {{route}}",
           "range": true,
           "refId": "A"
@@ -2632,7 +2581,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "Maximum observed number of active sessions.",
       "fieldConfig": {
@@ -2697,10 +2646,7 @@
       "id": 38,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max"
-          ],
+          "calcs": ["lastNotNull", "max"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true,
@@ -2717,7 +2663,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_server_max_sessions{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by (route,exported_pod)",
@@ -2736,7 +2682,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2800,10 +2746,7 @@
       "id": 47,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max"
-          ],
+          "calcs": ["lastNotNull", "max"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -2818,7 +2761,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_server_current_queue{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by(route, exported_pod) ",
@@ -2837,7 +2780,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2900,12 +2843,7 @@
       "id": 43,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "min",
-            "mean"
-          ],
+          "calcs": ["lastNotNull", "max", "min", "mean"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -2931,7 +2869,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2994,12 +2932,7 @@
       "id": 44,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "min",
-            "mean"
-          ],
+          "calcs": ["lastNotNull", "max", "min", "mean"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -3025,7 +2958,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "Average response latency of the last 1024 requests in milliseconds.",
       "fieldConfig": {
@@ -3089,12 +3022,7 @@
       "id": 45,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "min",
-            "mean"
-          ],
+          "calcs": ["lastNotNull", "max", "min", "mean"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -3120,7 +3048,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "description": "Average response latency of the last 1024 requests in milliseconds.",
       "fieldConfig": {
@@ -3184,12 +3112,7 @@
       "id": 46,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "min",
-            "mean"
-          ],
+          "calcs": ["lastNotNull", "max", "min", "mean"],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -3215,7 +3138,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3249,9 +3172,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -3264,7 +3185,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_server_connections_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by (route,exported_pod)",
@@ -3281,7 +3202,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3315,9 +3236,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -3330,7 +3249,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_server_connection_errors_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by (route, exported_pod)",
@@ -3347,7 +3266,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+        "uid": "${DS_OCP_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -3381,9 +3300,7 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -3396,7 +3313,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(haproxy_server_response_errors_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by (route, exported_pod)",
@@ -3414,14 +3331,7 @@
   "preload": false,
   "refresh": "10s",
   "schemaVersion": 40,
-  "tags": [
-    "openshift",
-    "ingress",
-    "route",
-    "haproxy",
-    "backend",
-    "server"
-  ],
+  "tags": ["openshift", "ingress", "route", "haproxy", "backend", "server"],
   "templating": {
     "list": [
       {
@@ -3507,14 +3417,10 @@
       },
       {
         "current": {
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "text": ["All"],
+          "value": ["$__all"]
         },
-        "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+        "datasource": "${DS_OCP_PROMETHEUS}",
         "definition": "label_values(haproxy_up, pod)",
         "description": "Router (HAProxy) pod",
         "includeAll": true,
@@ -3530,14 +3436,10 @@
       },
       {
         "current": {
-          "text": [
-            "test"
-          ],
-          "value": [
-            "test"
-          ]
+          "text": ["test"],
+          "value": ["test"]
         },
-        "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+        "datasource": "${DS_OCP_PROMETHEUS}",
         "definition": "label_values(haproxy_backend_up,exported_namespace)",
         "description": "Project in OpenShift a.k.a Namespace in K8s",
         "includeAll": true,
@@ -3560,7 +3462,7 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+        "datasource": "${DS_OCP_PROMETHEUS}",
         "definition": "label_values(haproxy_backend_up{exported_namespace=~\"$namespace\"},route)",
         "description": "OpenShift Route",
         "includeAll": true,
@@ -3580,14 +3482,10 @@
       },
       {
         "current": {
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "text": ["All"],
+          "value": ["$__all"]
         },
-        "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+        "datasource": "${DS_OCP_PROMETHEUS}",
         "definition": "label_values(haproxy_backend_up{pod=~\"$pod\", exported_namespace=~\"$namespace\"},backend)",
         "description": "Route Type",
         "includeAll": true,
@@ -3610,7 +3508,7 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+        "datasource": "${DS_OCP_PROMETHEUS}",
         "definition": "label_values(haproxy_backend_http_responses_total{pod=~\"$pod\", backend=~\"$backend\"},code)",
         "includeAll": true,
         "label": "HTTP Code",
