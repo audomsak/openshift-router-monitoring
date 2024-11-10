@@ -6,5 +6,5 @@ spec:
   instanceSelector:
     matchLabels:
       instance: grafana
-  resyncPeriod: 5m
+  resyncPeriod: 1m
   title: OpenShift
