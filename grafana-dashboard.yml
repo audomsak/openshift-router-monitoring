@@ -4,15 +4,45 @@ metadata:
   name: openshift-ingress
 spec:
   datasources:
-    - datasourceName: prometheus
-      inputName: prometheus
-  resyncPeriod: 5m
+    - datasourceName: openshift-prometheus
+      inputName: DS_OCP_PROMETHEUS
+  resyncPeriod: 1m
   instanceSelector:
     matchLabels:
       instance: grafana
   folder: openshift
   json: |
     {
+      "__inputs": [
+        {
+          "name": "DS_OCP_PROMETHEUS",
+          "label": "prometheus",
+          "description": "Prometheus in OpenShift monitoring stack.",
+          "type": "datasource",
+          "pluginId": "prometheus",
+          "pluginName": "Prometheus"
+        }
+      ],
+      "__requires": [
+        {
+          "type": "grafana",
+          "id": "grafana",
+          "name": "Grafana",
+          "version": "10.0.0"
+        },
+        {
+          "type": "datasource",
+          "id": "prometheus",
+          "name": "Prometheus",
+          "version": "1.0.0"
+        },
+        {
+          "type": "panel",
+          "id": "timeseries",
+          "name": "Time series",
+          "version": ""
+        }
+      ],
       "annotations": {
         "list": [
           {
@@ -52,7 +82,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -117,7 +147,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -182,7 +212,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "When was the last date and time HAProxy process reloaded",
           "fieldConfig": {
@@ -241,7 +271,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "haproxy_process_start_time_seconds{pod=~\"$pod\"}*1000",
@@ -260,7 +290,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -329,7 +359,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -394,7 +424,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "How long the HAProxy process has been started since last reloaded",
           "fieldConfig": {
@@ -453,7 +483,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "time() - haproxy_process_start_time_seconds{pod=~\"$pod\"}",
@@ -472,7 +502,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -539,7 +569,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -599,7 +629,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "Total of connection errors when HAProxy was not able to connect to backend i.e. pod(s)",
           "fieldConfig": {
@@ -664,7 +694,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -725,7 +755,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -799,7 +829,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "",
           "fieldConfig": {
@@ -886,7 +916,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "",
           "fieldConfig": {
@@ -973,7 +1003,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "",
           "fieldConfig": {
@@ -1065,7 +1095,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "",
           "fieldConfig": {
@@ -1134,7 +1164,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1243,7 +1273,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "Maximum observed number of active sessions.",
           "fieldConfig": {
@@ -1328,7 +1358,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "haproxy_backend_max_sessions{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}",
@@ -1347,7 +1377,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1454,7 +1484,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_backend_current_sessions{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by(pod, route) ",
@@ -1473,7 +1503,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1555,7 +1585,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_backend_current_queue{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by(pod, route) ",
@@ -1574,7 +1604,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1668,7 +1698,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1762,7 +1792,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "Average response latency of the last 1024 requests in milliseconds.",
           "fieldConfig": {
@@ -1857,7 +1887,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "Average response latency of the last 1024 requests in milliseconds.",
           "fieldConfig": {
@@ -1952,7 +1982,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2001,7 +2031,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_backend_connections_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by (route, pod)",
@@ -2018,7 +2048,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2067,7 +2097,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_backend_connection_errors_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by (route, pod)",
@@ -2084,7 +2114,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2133,7 +2163,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_backend_response_errors_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\", backend=~\"$backend\"}) by (route, pod)",
@@ -2163,7 +2193,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "",
           "fieldConfig": {
@@ -2250,7 +2280,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "",
           "fieldConfig": {
@@ -2337,7 +2367,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "",
           "fieldConfig": {
@@ -2429,7 +2459,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2538,7 +2568,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "Total servers per route",
           "fieldConfig": {
@@ -2634,7 +2664,7 @@ spec:
           "targets": [
             {
               "editorMode": "code",
-              "expr": "count(haproxy_server_up{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"} == 1) by (route)",
+              "expr": "count(group(haproxy_server_up{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"} == 1) by (exported_pod, route))",
               "legendFormat": "R: {{route}}",
               "range": true,
               "refId": "A"
@@ -2646,7 +2676,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "Maximum observed number of active sessions.",
           "fieldConfig": {
@@ -2731,7 +2761,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_server_max_sessions{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by (route,exported_pod)",
@@ -2750,7 +2780,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2832,7 +2862,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_server_current_queue{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by(route, exported_pod) ",
@@ -2851,7 +2881,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2945,7 +2975,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3039,7 +3069,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "Average response latency of the last 1024 requests in milliseconds.",
           "fieldConfig": {
@@ -3134,7 +3164,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "description": "Average response latency of the last 1024 requests in milliseconds.",
           "fieldConfig": {
@@ -3229,7 +3259,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3278,7 +3308,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_server_connections_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by (route,exported_pod)",
@@ -3295,7 +3325,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3344,7 +3374,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_server_connection_errors_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by (route, exported_pod)",
@@ -3361,7 +3391,7 @@ spec:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+            "uid": "${DS_OCP_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3410,7 +3440,7 @@ spec:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "d752d0b2-8233-4cee-80bc-acac08631e58"
+                "uid": "${DS_OCP_PROMETHEUS}"
               },
               "editorMode": "code",
               "expr": "sum(haproxy_server_response_errors_total{pod=~\"$pod\", exported_namespace=~\"$namespace\", route=~\"$route\"}) by (route, exported_pod)",
@@ -3528,7 +3558,7 @@ spec:
                 "$__all"
               ]
             },
-            "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+            "datasource": "${DS_OCP_PROMETHEUS}",
             "definition": "label_values(haproxy_up, pod)",
             "description": "Router (HAProxy) pod",
             "includeAll": true,
@@ -3551,7 +3581,7 @@ spec:
                 "test"
               ]
             },
-            "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+            "datasource": "${DS_OCP_PROMETHEUS}",
             "definition": "label_values(haproxy_backend_up,exported_namespace)",
             "description": "Project in OpenShift a.k.a Namespace in K8s",
             "includeAll": true,
@@ -3574,7 +3604,7 @@ spec:
               "text": "All",
               "value": "$__all"
             },
-            "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+            "datasource": "${DS_OCP_PROMETHEUS}",
             "definition": "label_values(haproxy_backend_up{exported_namespace=~\"$namespace\"},route)",
             "description": "OpenShift Route",
             "includeAll": true,
@@ -3601,7 +3631,7 @@ spec:
                 "$__all"
               ]
             },
-            "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+            "datasource": "${DS_OCP_PROMETHEUS}",
             "definition": "label_values(haproxy_backend_up{pod=~\"$pod\", exported_namespace=~\"$namespace\"},backend)",
             "description": "Route Type",
             "includeAll": true,
@@ -3624,7 +3654,7 @@ spec:
               "text": "All",
               "value": "$__all"
             },
-            "datasource": "d752d0b2-8233-4cee-80bc-acac08631e58",
+            "datasource": "${DS_OCP_PROMETHEUS}",
             "definition": "label_values(haproxy_backend_http_responses_total{pod=~\"$pod\", backend=~\"$backend\"},code)",
             "includeAll": true,
             "label": "HTTP Code",
