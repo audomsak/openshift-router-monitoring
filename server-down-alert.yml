@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: my-node-js-app-down
+  namespace: openshift-monitoring
+spec:
+  groups:
+  - name: MyNodeJSAppDown
+    rules:
+    - alert: MyNodeJSAppDownCritical
+      expr: count(group(haproxy_server_up{exported_pod=~"nodejs-basic.*", exported_namespace=~"test", route="nodejs-basic"} == 1) by (exported_pod, route)) by (route) < 5
+      for: 30s
+      labels:
+        severity: 'critical'
+      annotations:
+        description: 'Total of my NodeJS app pods ({{$value}} pods) associated to {{$labels.route}} route is less than expected (5 pods)'
+        summary: 'Total of my NodeJS app pods is less than expected'
