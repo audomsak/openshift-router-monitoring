@@ -25,3 +25,9 @@ curl -u $USER:$PASS http://localhost:1936/metrics
 ```
 
 Ref: [Expose router metrics](https://docs.openshift.com/container-platform/4.14/networking/ingress-operator.html#nw-exposing-router-metrics_configuring-ingress)
+
+## Sample of dashboard screenshots
+
+![Summary](images/summary.png)
+![Backend](images/backend.png)
+![Server](images/server.png)
